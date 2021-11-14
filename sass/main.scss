@@ -1,0 +1,158 @@
+// COLOR VAR MODIFICATION
+
+$primary: #5265E1;
+$secondary: #FA5959;
+$light: #e9ecef;
+$info: #777;
+
+// CUSTOM COLORS
+
+$text-color: #333;
+$light-text-color: #777;
+
+// MIXINS
+
+@mixin btn-color ($color){
+    color: white;
+    border: 2px solid $color;
+    font-weight: 600;
+    &:hover {
+        color: $color;
+        background-color: white;
+        border: 2px solid $color;
+    }
+}
+
+@mixin link-color ($color,$hover-color) {
+    color: $color;
+        &:hover {
+            color: $hover-color;
+        }
+}
+
+
+
+// NAVBAR MODIFICATION
+
+.navbar-top {
+    .nav-item > a {
+        @include link-color($text-color,$secondary);
+
+        .social-icon:hover{
+            @include link-color($text-color,$secondary);
+        }
+    }
+
+    .nav-item > button {
+        @include btn-color($secondary);
+        
+    }
+}
+
+// MAIN SECTION BUTTON MODIFICATION
+
+
+.btns{
+    .btn:nth-child(1){
+        @include btn-color($primary);
+    }
+    .btn:nth-child(2){
+        border: 2px solid $light;
+        font-weight: 600;
+        &:hover{
+            color: $text-color;
+            background-color: white;
+            border: 2px solid $text-color;
+        }
+    }
+}
+
+
+// TAB MODIFICATION
+
+$nav-tabs-border-width: 0px;
+$nav-tabs-link-active-border-color: $secondary;
+
+.nav-tabs {
+    
+    .nav-item{
+        border-bottom: 1px solid lighten($light-text-color,30%);
+
+        .active {
+            color: $text-color;
+            font-weight: 600;
+            border-bottom: 3px solid $secondary;
+
+            .nav-item{
+                border-bottom: 0px solid $light-text-color;
+            }
+        }
+     }
+
+    .nav-link {
+        @include link-color($light-text-color,$secondary);   
+    }
+}
+
+// CARDS MODIFICATION
+
+$card-border-radius: 20px;
+$card-border-width: 0;
+ 
+.card{
+    .btn{
+        @include btn-color($primary);
+    }
+    &:nth-child(2){
+        // transform: translateY(50px);
+        position: relative;
+        top: 50px;
+    }
+    &:nth-child(3){
+        // transform: translateY(100px);
+        position: relative;
+        top: 100px;
+    }
+    .img-fluid{
+        min-width: 100px;
+    }
+}
+
+// FAQS MODIFICATION
+
+.accordion-header:hover {
+   h2, button{
+     color: $secondary;  
+   } 
+}
+
+// FOOTER MODIFICATION
+
+footer {
+    .people-joined{
+        letter-spacing: 0.3rem;
+    }
+
+    form .btn {
+        @include btn-color($secondary);
+    }
+}
+
+
+.footer-navbar {
+    .navbar{
+        background: darken($primary,50%);
+
+        .nav-item > a{
+            @include link-color($light, $secondary);
+
+        }
+    }
+}
+
+// import orginal Bootstrap Files
+@import '../node_modules/bootstrap/scss/bootstrap';
+@import '../node_modules/bootstrap/scss/nav';
+@import '../node_modules/bootstrap/scss/buttons';
+@import '../node_modules/bootstrap/scss/card';
+@import '../node_modules/bootstrap/scss/accordion';
