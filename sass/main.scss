@@ -10,6 +10,10 @@ $info: #777;
 $text-color: #333;
 $light-text-color: #777;
 
+// TYPOGRAPHY
+// $font-family-base: arial;
+// $font-weight-normal: 500;
+
 // MIXINS
 
 @mixin btn-color ($color){
@@ -49,6 +53,17 @@ $light-text-color: #777;
     }
 }
 
+#navbarToggler {
+    opacity: 0.95;
+    background: darken($primary,50%);
+    z-index: 1;
+    
+    .navbar-nav:first-of-type .nav-item {
+        border-top: 1px solid $text-color;
+
+    }
+}
+
 // MAIN SECTION BUTTON MODIFICATION
 
 
@@ -65,6 +80,10 @@ $light-text-color: #777;
             border: 2px solid $text-color;
         }
     }
+}
+
+.illustration {
+    box-shadow: 200px 200px 0px $primary;
 }
 
 
@@ -118,10 +137,21 @@ $card-border-width: 0;
     }
 }
 
-// FAQS MODIFICATION
+// ACCORDION MODIFICATION
+
+$accordion-icon-color: $primary;
+$accordion-icon-active-color: $secondary;
+$accordion-button-active-bg: transparent;
+$accordion-button-active-color: $text-color;
+$accordion-button-focus-box-shadow: 0 0 transparent;
+
+
+.accordion-button {
+    font-weight: 500;
+}
 
 .accordion-header:hover {
-   h2, button{
+   button{
      color: $secondary;  
    } 
 }
@@ -133,7 +163,7 @@ footer {
         letter-spacing: 0.3rem;
     }
 
-    form .btn {
+    .btn {
         @include btn-color($secondary);
     }
 }
@@ -146,6 +176,9 @@ footer {
         .nav-item > a{
             @include link-color($light, $secondary);
 
+            & img:hover {
+                opacity: 0.5;
+            }
         }
     }
 }
