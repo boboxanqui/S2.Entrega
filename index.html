@@ -265,14 +265,14 @@
             </div>
         </div>
 
-        <form class="needs-validation" novalidate></form>
+        <form class="needs-validation" novalidate>
             <div class="row justify-content-center align-items-center" id="contactUs">
                 
                 <div class="col-8 col-sm-auto ">
                     <!-- <label for="emailContact" class="form-label"></label> -->
-                    <div class="input-group has-validation">
-                        <input type="mail" id="emailContact" placeholder="Enter your email address" class="form-control m-2 w-100" style="max-width: 400px; min-width: 250px;"  aria-describedby="inputGroupPrepend" required>
-                        <div class="invalid-feedback">Whoops, make sure it's an email</div>
+                    <div class="input-group position-relative">
+                        <input type="email" id="emailContact" placeholder="Enter your email address" class="form-control w-100" size="40"  aria-describedby="inputGroupPrepend" required>
+                        <div class="invalid-tooltip text-white w-100 m-0 rounded-bottom">Whoops, make sure it's an email</div>
                     </div>
                 </div>
 
@@ -281,6 +281,7 @@
                 </div>         
             </div>
         </form>
+
         <div class="row mt-5 footer-navbar">
             <nav class="navbar navbar-expand-sm py-2">
                 <div class="container d-flex flex-column flex-sm-row">
@@ -303,10 +304,10 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav mx-1 m-md-3 d-flex flex-row">
-                        <li class="nav-item m-3 m-md-3">
+                        <li class="nav-item m-3 m-sm-2 m-md-3">
                             <a href="#!"><img src="img/icon-facebook.svg" alt="Facebook" class="social-icon"></a>
                         </li>
-                        <li class="nav-item m-3 m-md-3">
+                        <li class="nav-item m-3 m-sm-2 m-md-3">
                             <a href="#!"><img src="img/icon-twitter.svg" alt="Twitter" class="social-icon"></a>
                         </li>
                     </ul>
@@ -316,6 +317,28 @@
        
     </footer>
 
-   <!-- <script src="js/main.js"></script> -->
+    <!-- JS para validación del formulario -->
+   <script>
+       // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+            })
+        })()
+   </script>
 </body>
 </html>

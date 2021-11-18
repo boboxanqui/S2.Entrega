@@ -20,10 +20,16 @@ $light-text-color: #777;
     color: white;
     border: 2px solid $color;
     font-weight: 600;
+    &:visited {
+        color: white;
+    }
     &:hover {
         color: $color;
         background-color: white;
         border: 2px solid $color;
+    }
+    &:active {
+        color: white;
     }
 }
 
@@ -168,7 +174,6 @@ footer {
     }
 }
 
-
 .footer-navbar {
     .navbar{
         background: darken($primary,50%);
@@ -182,6 +187,13 @@ footer {
         }
     }
 }
+
+// FORM VALIDATION MODIFICATION
+
+$form-feedback-invalid-color: $secondary;
+$form-feedback-icon-invalid: url(../img/icon-error.svg);
+$tooltip-border-radius: 0;
+
 
 // import orginal Bootstrap Files
 @import '../node_modules/bootstrap/scss/bootstrap';
